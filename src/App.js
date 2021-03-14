@@ -64,7 +64,11 @@ function App() {
         amount={fromAmount}
         onChangeAmount={handleFromAmountChane}
       />
-      <h1>&#x0296F;</h1>
+      {amountInFromCurrency ? (
+        <h1>&#x02965;</h1>
+      ) : (
+        <h1>&#x02963;</h1>
+      )}
       <CurrencyRow 
         currencyOptions={currencyOptions}
         selectedCurrency={toCurrency}
