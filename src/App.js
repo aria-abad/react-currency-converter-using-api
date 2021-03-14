@@ -16,13 +16,11 @@ function App() {
   let toAmount, fromAmount;
   if (amountInFromCurrency) {
     fromAmount = amount;
-    toAmount = amount * exchageRate;
+    toAmount = Math.round((amount * exchageRate)*10000)/10000;
   } else {
     toAmount = amount;
-    fromAmount = amount / exchageRate;
+    fromAmount = Math.round((amount / exchageRate)*10000)/10000 ;
   }
-
-
 
   useEffect(() => {
     fetch(BASE_URL)
@@ -76,6 +74,11 @@ function App() {
         amount={toAmount}
         onChangeAmount={handleToAmountChane}
       />
+      {amountInFromCurrency ? (
+        <div>1 {fromCurrency} is equal to {exchageRate} of {toCurrency}</div>
+      ) : (
+        <div>1 {toCurrency} is equal to {Math.round((1/exchageRate)*10000)/10000} of {fromCurrency}</div>
+      )}
     </>
   );
 }
