@@ -9,7 +9,7 @@ function App() {
   const [currencyOptions, setCurrencyOptions] = useState([]);
   const [fromCurrency, setFromCurrency] = useState();
   const [toCurrency, setToCurrency] = useState();
-  const [exchageRate, setExchageRate] = useState();
+  const [exchageRate, setExchageRate] = useState(1);
   const [amount, setAmount] = useState(1);
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
 
